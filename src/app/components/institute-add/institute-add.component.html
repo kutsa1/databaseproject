@@ -1,0 +1,34 @@
+<div class="card">
+  <h2 class="card-header text-primary">Institute Add</h2>
+  <div class="card-body">
+    <form [formGroup]="formGroup">
+      <div class="form-row row d-flex flex-row  justify-content-center">
+
+        <div class="d-flex flex-row justify-content-around">
+          <div class="col">
+            <mat-form-field size="sm" appearance="outline">
+              <mat-label>{{"University"}}</mat-label>
+              <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option (onSelectionChange)="setuni(university)"
+                            (click)="setuni(university)"
+                            *ngFor="let university of universities"
+                            [value]="university">{{university.name|uppercase}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="sr-only" for="inlineFormInputGroup1">Name</label>
+          <div class="input-group mb-2">
+            <input type="text" formControlName="name" class="form-control"
+                   id="inlineFormInputGroup1">
+          </div>
+        </div>
+        <div class="col-12 d-flex flex-row-reverse">
+          <button (click)="save()" class="btn btn-lg btn-success mb-2">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
