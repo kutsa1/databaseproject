@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{"Attention!"|uppercase}}</h1>
+<div mat-dialog-content>
+  <h2>{{data.title + "  will be deleted "}}</h2>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="Ok(data)" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

@@ -1,0 +1,154 @@
+<div class="card">
+  <h2 class="card-header text-primary">Thesis Update</h2>
+  <div class="card-body">
+    <form [formGroup]="thesisAddForm">
+      <div class="form-row row d-flex flex-row  justify-content-center">
+        <div class="co">
+          <div class="row d-flex flex-row justify-content-around ">
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Author"}}</mat-label>
+                <mat-select [(ngModel)]="thesisDetailDto.author" formControlName="author">
+                  <mat-option
+                    [value]="thesisDetailDto.author">{{(thesisDetailDto.author.name + " " + thesisDetailDto.author.lastName)|uppercase}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Supervisor"}}</mat-label>
+                <mat-select formControlName="counselors" multiple>
+                  <mat-option *ngFor="let supervisor of supervisors"
+                              [value]="supervisor">{{supervisor.name + " " + supervisor.lastName|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Language"}}</mat-label>
+                <mat-select formControlName="language">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let language of languages"
+                              [value]="language">{{language.name|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"University"}}</mat-label>
+                <mat-select formControlName="university">
+                  <mat-option>None</mat-option>
+                  <mat-option (onSelectionChange)="getAllInstituteByUniId(university.id?university.id:0)"
+                              (click)="getAllInstituteByUniId(university.id?university.id:0)"
+                              *ngFor="let university of universities"
+                              [value]="university">{{university.name|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Institute"}}</mat-label>
+                <mat-select formControlName="institute">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let institute of institutes"
+                              [value]="institute">{{institute.name|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Subject Topics"}}</mat-label>
+                <mat-select formControlName="subjectTopics" multiple>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let topic of topics" [value]="topic">{{topic.name|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <mat-form-field size="sm" appearance="outline">
+                <mat-label>{{"Type"}}</mat-label>
+                <mat-select formControlName="type">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let type of types" [value]="type">{{type|uppercase}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <div class="row">
+                <div class="col-6 input-group mb-3">
+                  <input formControlName="keywords" [(ngModel)]="keyword" name="keyword" type="text"
+                         class="form-control"
+                         placeholder="Add Keyword">
+                  <button (click)="addKeyword()" class="btn btn-outline-secondary" type="button" id="button-addon2">
+                    Add
+                  </button>
+                </div>
+                <div class="col-6">
+                  <mat-form-field size="sm" appearance="outline">
+                    <mat-label>{{"Keyword"}}</mat-label>
+                    <mat-select formControlName="keywords" multiple>
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let keyword of keywords"
+                                  [value]="keyword">{{keyword.name|uppercase}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="d-flex flex-row justify-content-around"></div>
+        <div class="col">
+          <label class="sr-only" for="inlineFormInputGroup1">Title</label>
+          <div class="input-group mb-2">
+            <input type="text" formControlName="title" [(ngModel)]="thesisDetailDto.title" class="form-control"
+                   id="inlineFormInputGroup1">
+          </div>
+        </div>
+        <div class="col">
+          <label class="sr-only" for="inlineFormInputGroup2">Thesis No</label>
+          <div class="input-group mb-2">
+            <input type="number" formControlName="thesisNo" [(ngModel)]="thesisDetailDto.thesisNo" class="form-control"
+                   id="inlineFormInputGroup2">
+          </div>
+        </div>
+
+        <div class="col">
+          <label class="sr-only" for="inlineFormInputGroup4">Year</label>
+          <div class="input-group mb-2">
+            <input type="text" formControlName="year" [(ngModel)]="thesisDetailDto.year" class="form-control"
+                   id="inlineFormInputGroup4">
+          </div>
+        </div>
+        <div class="col">
+          <label class="sr-only" for="inlineFormInputGroup5">Submission Date</label>
+          <div class="input-group mb-2">
+            <input type="text" formControlName="submissionDate" [(ngModel)]="thesisDetailDto.submissionDate"
+                   class="form-control" id="inlineFormInputGroup5">
+          </div>
+        </div>
+        <div class="col">
+          <label class="sr-only" for="inlineFormInputGroup6">Number Of Page</label>
+          <div class="input-group mb-2">
+            <input type="number" formControlName="numberOfPages" [(ngModel)]="thesisDetailDto.numberOfPages"
+                   class="form-control" id="inlineFormInputGroup6">
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="sr-only" for="inlineFormInputGroup3">Summary</label>
+          <div class="input-group mb-2">
+            <textarea type="text" formControlName="summary" [(ngModel)]="thesisDetailDto.summary" class="form-control"
+                      id="inlineFormInputGroup3"></textarea>
+          </div>
+        </div>
+        <div class="col-12 d-flex flex-row-reverse">
+          <button (click)="submit()" class="btn btn-lg btn-success mb-2">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

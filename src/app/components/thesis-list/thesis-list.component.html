@@ -1,0 +1,36 @@
+<table class="table table-primary   table-hover ">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Author</th>
+    <th scope="col">University</th>
+    <th scope="col">Institute</th>
+    <th scope="col">Language</th>
+    <th scope="col">Year</th>
+    <th scope="col">Submission Date</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let thesis of thesisList; index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{thesis.title}}</td>
+    <td>{{thesis.author}}</td>
+    <td>{{thesis.university}}</td>
+    <td>{{thesis.institute}}</td>
+    <td>{{thesis.language}}</td>
+    <td>{{thesis.year|date}}</td>
+    <td>{{thesis.submissionDate|date}}</td>
+    <td>
+      <button (click)="editDialog(thesis.id)" class="btn btn-primary">Edit</button>
+    </td>
+    <td>
+      <button (click)="deleteDialog(thesis)" class="btn btn-danger">Delete</button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

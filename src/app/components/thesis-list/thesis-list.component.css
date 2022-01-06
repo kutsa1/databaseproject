@@ -1,0 +1,10 @@
+table, th, td {
+  border-collapse: collapse;
+
+}
+/* setting the text-align property to center*/
+td,th {
+  padding: 5px;
+  text-align:center;
+
+}

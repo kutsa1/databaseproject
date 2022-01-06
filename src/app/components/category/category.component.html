@@ -1,0 +1,61 @@
+<div class="row d-flex flex-row justify-content-around ">
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"Author"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let author of authors"
+                    [value]="author">{{(author.name + " " + author.lastName)|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"Supervisor"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let supervisor of supervisors"
+                    [value]="supervisor">{{supervisor.name + " " + supervisor.lastName|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"Language"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let language of languages" [value]="language">{{language.name|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"University"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option (onSelectionChange)="getAllInstituteByUniId(university.id?university.id:0)"
+                    (click)="getAllInstituteByUniId(university.id?university.id:0)"
+                    *ngFor="let university of universities"
+                    [value]="university">{{university.name|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"Institute"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let institute of institutes" [value]="institute">{{institute.name|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field size="sm" appearance="outline">
+      <mat-label>{{"Subject Topic"}}</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let topic of topics" [value]="topic">{{topic.name|uppercase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
