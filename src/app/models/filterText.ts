@@ -1,0 +1,1 @@
+export let FilterText: string

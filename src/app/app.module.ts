@@ -27,6 +27,13 @@ import {ToastrModule} from 'ngx-toastr';
 import { DeleteDialogComponent } from './components/dialogs/delete-dialog/delete-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { DetailDialogComponent } from './components/dialogs/detail-dialog/detail-dialog.component';
+import { AuthorAddComponent } from './components/author-add/author-add.component';
+import { InstituteAddComponent } from './components/institute-add/institute-add.component';
+import { SupervisorAddComponent } from './components/supervisor-add/supervisor-add.component';
+import { UniversityAddComponent } from './components/university-add/university-add.component';
+import { SubjectTopicAddComponent } from './components/subject-topic-add/subject-topic-add.component';
+import { LanguageAddComponent } from './components/language-add/language-add.component';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 
 
@@ -46,7 +53,14 @@ import { DetailDialogComponent } from './components/dialogs/detail-dialog/detail
     ThesisAddComponent,
     HomeComponent,
     DeleteDialogComponent,
-    DetailDialogComponent
+    DetailDialogComponent,
+    AuthorAddComponent,
+    InstituteAddComponent,
+    SupervisorAddComponent,
+    UniversityAddComponent,
+    SubjectTopicAddComponent,
+    LanguageAddComponent,
+    FilterPipePipe
   ],
     imports: [
         BrowserModule,

@@ -5,6 +5,7 @@ import {ListResponseModel} from "../models/baseModels/listResponseModel";
 import {environment} from "../../environments/environment";
 import {Keyword} from "../models/keyword";
 import {ResponseModel} from "../models/baseModels/responseModel";
+import {Author} from "../models/author";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,8 @@ export class KeywordService {
 
   addKeyword(keyword: Keyword): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(environment.apiUrl + "keywords/add", keyword);
+  }
+  add(entity: Keyword): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "keywords/add", entity)
   }
 }

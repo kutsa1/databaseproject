@@ -1,39 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex flex-row justify-content-center">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <a class="navbar-brand mx-4" href="#">Home</a>
+    <button class="mx-2 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
-            Dropdown
+            Add new Item
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a (click)="adduni()" class="dropdown-item">University</a></li>
+            <li><a (click)="addinsti()" class="dropdown-item">Institute</a></li>
+            <li><a (click)="addauthor()" class="dropdown-item">Author</a></li>
+            <li><a (click)="addsupervisor()" class="dropdown-item">Supervisor</a></li>
+            <li><a (click)="addsubject()" class="dropdown-item">Subject</a></li>
+            <li><a (click)="addlanguage()" class="dropdown-item">Language</a></li>
           </ul>
         </li>
 
       </ul>
-      <button routerLink="/thesis-add" class="btn btn-outline-success mx-2"> Add Thesis</button>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <button routerLink="/thesis-add" class="mx-5 btn btn-outline-success mx-2"> Add Thesis</button>
     </div>
   </div>
 </nav>

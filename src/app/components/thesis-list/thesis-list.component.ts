@@ -14,6 +14,7 @@ import {DetailDialogComponent} from "../dialogs/detail-dialog/detail-dialog.comp
 export class ThesisListComponent implements OnInit {
 
   thesisList: ThesisDetailModal[] = [];
+  filterText: string;
 
   constructor(private thesisService: ThesisService, public dialog: MatDialog,
               private router: Router
